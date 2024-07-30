@@ -1,0 +1,4 @@
+Vulnerabilities
+CSRF (Change password, Change secret, Transfer Amount) 
+PRIVILEGE ESCALATION (Bypassing Access Controls via Direct URL access, Manipulating Form Data)
+RCE (User Input Handling, Theme and Plugin, Direct Access to PHP Files) 
