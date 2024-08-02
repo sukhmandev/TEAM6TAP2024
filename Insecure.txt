@@ -1,0 +1,38 @@
+https://192.168.56.103/bWAPP/restrict_folder_access.php
+                                              bWAPP
+Insecure DOR (Change secret)
+
+1)user login and change secret 
+2)user enter key change
+secret=5&
+login=bee&
+action=change
+
+action = change
+login=bee
+
+3)Attacker can chamge login name.show demo.
+4)show this msg "The secret has been changed!"
+
+Insecure DOR (Reset Secret)
+
+second step bWAPP
+
+1)user click button and reset secret 
+2)user click intercept request in burp suite.
+3) see <reset><login>bee</login><secret>Any bugs?</secret></reset>
+4)Attacker can change login name.
+5)Reset to secret.
+
+Insecure DOR (Order Tickets)
+
+most important 
+
+1)Attacker enter ticket no.
+2)intercept request in burp suite.
+3)change Rs.
+4)see demo.
+
+Attacker booking 10 tickets and Attacker pay only 30EUR.
+
+
