@@ -1,4 +1,4 @@
 Vulnerabilities
-CSRF (Change password, Change secret, Transfer Amount) 
-PRIVILEGE ESCALATION (Bypassing Access Controls via Direct URL access, Manipulating Form Data)
-RCE (User Input Handling, Theme and Plugin, Direct Access to PHP Files) 
+CSRF-a type of attack where a malicious website tricks a user's browser into making an unwanted request to another website where the user is already logged in. (Change password, Change secret, Transfer Amount) 
+PRIVILEGE ESCALATION-privilege escalation is when someone gains higher privileges than they're supposed to have. (Bypassing Access Controls via Direct URL access, Manipulating Form Data)
+RCE-RCE occurs when an attacker can send malicious input to a website, which then gets executed as code on the server. (User Input Handling, Theme and Plugin, Direct Access to PHP Files) 
