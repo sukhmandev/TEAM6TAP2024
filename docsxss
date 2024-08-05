@@ -1,0 +1,81 @@
+Cross-Site Scripting (XSS)
+Introduction
+Cross-Site Scripting (XSS) is a type of security vulnerability typically found in web applications. It allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal cookies, session tokens, or other sensitive information, manipulate the content displayed to the user, or perform actions on behalf of the user.
+
+Types of XSS
+There are three main types of XSS vulnerabilities:
+
+Stored XSS:
+
+The malicious script is permanently stored on the target server, such as in a database, a message forum, visitor log, comment field, etc. The victim then retrieves the malicious script from the server when they request the stored information.
+Reflected XSS:
+
+The malicious script comes from the current HTTP request. The server reflects the input data in the response without properly sanitizing it. This type of attack is usually delivered via a link, which the victim must click.
+DOM-Based XSS:
+
+The vulnerability exists in client-side scripts rather than server-side scripts. The attack is executed by altering the Document Object Model (DOM) environment in the victim’s browser.
+How XSS Works
+Injection:
+
+An attacker injects a malicious script into a website. This can be done through various input fields like comments, search boxes, or any other user input area.
+Execution:
+
+The injected script is executed by the victim’s browser. This can happen immediately or when the victim visits a particular page or performs a certain action.
+Impact:
+
+The script can steal cookies, session tokens, or other sensitive information, redirect the user to malicious websites, or perform actions on behalf of the user.
+Examples of XSS
+Stored XSS Example
+Attacker:
+
+Injects a malicious script into a comment field on a blog post:
+html
+Copy code
+<script>alert('Stored XSS');</script>
+Victim:
+
+Visits the blog post and the script is executed in their browser, displaying an alert box with the message "Stored XSS".
+Reflected XSS Example
+Attacker:
+
+Sends a link to the victim:
+php
+Copy code
+http://example.com/search?q=<script>alert('Reflected XSS');</script>
+Victim:
+
+Clicks the link and the script is executed in their browser, displaying an alert box with the message "Reflected XSS".
+DOM-Based XSS Example
+Attacker:
+
+Sends a link to the victim:
+php
+Copy code
+http://example.com/page#<script>alert('DOM XSS');</script>
+Victim:
+
+Clicks the link and the script is executed in their browser, displaying an alert box with the message "DOM XSS".
+Preventing XSS
+Server-Side Measures
+Input Validation:
+
+Validate and sanitize all user inputs. Ensure that input data conforms to the expected format.
+Output Encoding:
+
+Encode data before rendering it in the browser. For example, use HTML entity encoding to prevent scripts from being interpreted as code.
+Content Security Policy (CSP):
+
+Implement a Content Security Policy to restrict the sources from which content can be loaded. This can help mitigate the impact of XSS by blocking the execution of malicious scripts.
+Escaping:
+
+Properly escape all untrusted data based on the context (HTML, JavaScript, URL, etc.) in which it is used.
+Client-Side Measures
+Sanitize User Input:
+
+Use libraries or built-in functions to sanitize and encode user inputs in client-side scripts.
+Avoid Using eval():
+
+Avoid using eval() and other similar functions that execute code from strings.
+Secure JavaScript Frameworks:
+
+Use secure JavaScript frameworks that automatically handle encoding and escaping of data.
