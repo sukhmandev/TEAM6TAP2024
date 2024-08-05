@@ -1,0 +1,46 @@
+Broken Authentication: Password Attacks by Brute Force
+Introduction
+Broken authentication due to password attacks by brute force is a vulnerability that allows attackers to gain unauthorized access to user accounts by systematically trying a large number of possible passwords. This is often due to weak or insufficient protections against such attacks.
+
+What is a Brute Force Attack?
+A brute force attack involves an attacker trying all possible combinations of passwords until the correct one is found. This can be done manually, but is usually automated using software tools to speed up the process.
+
+Types of Brute Force Attacks
+Simple Brute Force:
+
+Trying all possible passwords without any optimization. This method is straightforward but time-consuming.
+Dictionary Attack:
+
+Using a precompiled list of common passwords or phrases (a dictionary) to guess passwords. This is faster than trying all possible combinations.
+Hybrid Attack:
+
+Combining dictionary attacks with brute force techniques. For example, starting with a dictionary of common passwords and then appending numbers or special characters to them.
+Credential Stuffing:
+
+Using lists of stolen credentials (username and password pairs) from previous breaches to gain access to accounts on other websites.
+How Brute Force Attacks Work
+Target Identification:
+
+The attacker identifies a target system or application that uses authentication mechanisms.
+Input Collection:
+
+The attacker collects information about possible usernames or user IDs.
+Password Guessing:
+
+The attacker uses automated tools to guess passwords for the collected usernames. This is done by systematically trying different password combinations.
+Access Verification:
+
+The attacker verifies if the guessed passwords are correct by attempting to log in.
+Exploit:
+
+Once the correct password is found, the attacker gains unauthorized access and can perform actions based on the permissions of the compromised account.
+Examples of Brute Force Attacks
+Simple Brute Force Example:
+
+An attacker uses a tool to try all possible combinations of a 4-digit PIN until the correct one is found.
+Dictionary Attack Example:
+
+An attacker uses a list of common passwords like "123456", "password", and "qwerty" to guess a user's password.
+Hybrid Attack Example:
+
+An attacker starts with a list of common passwords and adds a number at the end, like "password1", "password2", etc.
