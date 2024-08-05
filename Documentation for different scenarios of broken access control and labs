@@ -1,0 +1,70 @@
+Broken access control: Broken access control vulnerabilities can manifest in various ways within a web application. Here are some common scenarios:
+1.	Lab #1 – Unprotected admin functionality
+Target goal: Find the admin panel and delete the user carlos.
+Analysis: I change URL or bruteforce with different keywords like admin, admin-panel, administrator etc.
+https://0a95003e046a40f480916c9900b9002a.web-security-academy.net/login
+https://0a95003e046a40f480916c9900b9002a.web-security-academy.net/administrator-panel
+finally, administrator-panel works and I am able to see two users and able to access admin page.  
+
+2.	Lab#2: Unprotected admin functionality with unpredictable URL
+Target goal: Find the admin panel and delete the user carlos.
+Analysis: In this lab, the admin panel located at an unpredictable location, so we cannot bruteforce this one. However, the location is disclosed in somewhere in application. So we have to find location first.
+Firstly, I try to see it in robots file…
+https://0a160001043129f780edf81300c00026.web-security-academy.net/robots.txt
+but it doesn’t work. So I use the source code. I found “admin-9pqe4q” this address in script.
+https://0a160001043129f780edf81300c00026.web-security-academy.net/admin-9pqe4q
+now , user deleted successfully.
+3.	Lab#3: User role controlled by request parameter (Unprotected admin function)
+Target Goal: Access admin panel and use it to delete the user carlos.
+Creds: wiener:peter
+Analysis: 
+
+Command injection:
+Lab #1 - OS command injection, simple case
+
+Target Goal - Exploit command injection to execute whoami command.
+
+Analysis:
+
+1. Insecure Direct Object References (IDOR)
+An attacker can manipulate parameters in the URL or form data to access resources they shouldn't be able to.
+Example:
+•	URL: https://example.com/profile?user_id=123
+•	An attacker changes the user_id to 124 and gains access to another user's profile.
+2. Missing Function Level Access Control
+Functions or actions that should be restricted to certain user roles are accessible to others.
+Example:
+•	Regular users can access admin functions like https://example.com/admin/deleteUser.
+3. Forced Browsing
+An attacker can guess URLs to access parts of the application that should be restricted.
+Example:
+•	URLs like https://example.com/admin or https://example.com/reports are not properly secured.
+4. Unrestricted File Uploads
+An attacker can upload files that can be executed on the server.
+Example:
+•	Uploading a PHP script and then accessing it via https://example.com/uploads/malicious.php.
+5. Parameter Tampering
+Changing parameters in a request to access or modify data without proper authorization.
+Example:
+•	Changing the price in a purchase request from 100 to 1 in an online store.
+6. Privilege Escalation
+A user can escalate their privileges to a higher level due to flaws in the application.
+Example:
+•	A regular user can make themselves an admin by manipulating account settings or requests.
+7. Vertical Privilege Escalation
+A lower-privileged user performs actions that should only be available to higher-privileged users.
+Example:
+•	A standard user accessing admin-only pages or functionalities.
+8. Horizontal Privilege Escalation
+A user accesses resources or performs actions that should only be available to other users.
+Example:
+•	User A accessing User B’s data by changing a parameter.
+9. Cross-Site Request Forgery (CSRF)
+An attacker tricks a user into performing actions they did not intend to.
+Example:
+•	User is tricked into clicking a malicious link that performs an action on their behalf, like changing their email address.
+10. Session Fixation
+An attacker sets a user's session identifier and then uses that session to access the user’s account.
+Example:
+•	Attacker sets a session ID and then waits for the user to log in with that session.
+
