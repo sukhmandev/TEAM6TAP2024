@@ -1,0 +1,56 @@
+<?php
+
+foreach(getallheaders() as $name => $value)
+{
+
+    if($name == "bWAPP")
+    {
+
+        echo "<i>" . xss($value) ."</i>";
+
+    }
+
+}
+
+?>
+<?php
+
+foreach(getallheaders() as $name => $value)
+{
+
+    if($name == "bWAPP")
+    {
+
+        echo "<i>" . xss($value) ."</i>";
+
+    }
+
+}
+
+?>
+Analysis:
+
+getallheaders(): This function fetches all HTTP request headers.
+Custom Header Processing: It checks if there is a header named bWAPP, and if so, it processes the value through the xss() function and then outputs it.
+
+Potential XSS Vulnerability:
+The potential XSS vulnerability lies in the way the xss() function is defined and how the $value is handled before being echoed.
+
+Security Levels:
+Low (security_level = 0): The xss() function applies no sanitization when security_level is set to 0, as seen here:
+
+php
+
+case "0" : 
+    $data = no_check($data);            
+    break;
+
+Medium and High (security_level = 1 or 2): The function xss_check_4($data) or xss_check_3($data) is applied, which likely performs some sanitization, but depending on their implementation, might still be bypassed.
+
+If security_level = 0:
+The no_check($data) function doesn’t sanitize or validate the input, meaning that any user-controlled input in the bWAPP header will be directly outputted to the page. This creates a classic reflected XSS vulnerability, where malicious JavaScript can be injected into the page via the bWAPP custom header.
+
+Example Exploit:
+If security_level = 0, an attacker could craft a request with the following header:
+
+bWAPP: <script>alert('XSS')</script>
