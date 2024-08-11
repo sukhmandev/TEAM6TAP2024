@@ -1,0 +1,13 @@
+The username and password are hinted at directly in the HTML source code:
+
+Username: tonystark
+Password: I am Iron Man
+
+Exposing Sensitive Information in HTML:
+i noticed, the credentials (tonystark and I am Iron Man) were hardcoded into the HTML source. This is an example of poor security practices, where sensitive information is left exposed in the client-side code, making it easy for an attacker to discover.
+
+Lack of Encryption (Plaintext Transmission):
+If the form is submitted over HTTP instead of HTTPS, the credentials are transmitted in plaintext. This means an attacker could intercept the credentials using tools like packet sniffers during transmission over a network.
+
+Client-Side Validation Reliance:
+The form may rely too much on client-side validation (e.g., JavaScript), which can be easily bypassed or manipulated by an attacker using browser developer tools.
