@@ -35,7 +35,7 @@ Exploit:
 
 Once the correct password is found, the attacker gains unauthorized access and can perform actions based on the permissions of the compromised account.
 Examples of Brute Force Attacks
-Simple Brute Force Example:
+Simple Brute Force Example::
 
 An attacker uses a tool to try all possible combinations of a 4-digit PIN until the correct one is found.
 Dictionary Attack Example:
