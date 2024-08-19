@@ -5,7 +5,7 @@ Insecure DOR (Change secret)
 1)user login and change secret 
 2)user enter key change
 secret=5&
-login=bee&
+login=bee&    
 action=change
 
 action = change
